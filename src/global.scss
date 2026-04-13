@@ -1,0 +1,50 @@
+@forward "./env";
+@use "$lib/scss/mixins/font";
+
+// Jura
+@font-face {
+  font-family: "Jura";
+  src: url("/fonts/Jura/Jura-Variable.ttf");
+}
+
+// Inter
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  src: local("Inter"), url("/fonts/Inter/Inter-Variable.ttf");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: italic;
+  src: local("Inter"), url("/fonts/Inter/Inter-Italic-Variable.ttf");
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+:root {
+  @include font.readable;
+}
+
+.container {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 42px;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}

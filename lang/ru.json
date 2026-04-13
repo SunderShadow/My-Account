@@ -1,0 +1,10 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "author_full_name": "Шведов Александр Николаевич",
+  "author_job_name": "Fullstack web разработчик",
+
+  "page_home": "Главная",
+  "page_about_me": "Обо мне",
+  "page_projects": "Проекты",
+  "page_contact_me": "Связатся со мной"
+}
