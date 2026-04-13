@@ -7,12 +7,12 @@ export default [
     href: '/'
   },
   {
-    title: page_projects(),
-    href: '#projects'
-  },
-  {
     title: page_about_me(),
     href: '#about-me'
+  },
+  {
+    title: page_projects(),
+    href: '#projects'
   },
   {
     title: page_contact_me(),

@@ -10,6 +10,15 @@
 </script>
 <script lang="ts">
   import {page} from "$app/state"
+  import {goto} from "$app/navigation"
+
+  function onLinkClick(e: Event, href: string) {
+     e.preventDefault();
+     goto(href, {
+       replaceState: true,
+       noScroll: true
+     })
+  }
 
   let {
     items
@@ -23,7 +32,10 @@
 
 <nav>
   {#each items as {href, title}}
-    <a class:active={href === page.url.pathname} {href}>
+    <a {href}
+      onclick={(e) => {onLinkClick(e, href)}}
+      class:active={href === page.url.pathname}
+    >
       <span>{title}</span>
       {@render linkIcon()}
     </a>

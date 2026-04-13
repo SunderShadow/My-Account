@@ -6,7 +6,26 @@
 
   import HomeSection from "./Sections/Home/Home.svelte"
   import AboutMe from "./Sections/About-me/AboutMe.svelte"
+  import {onMount} from "svelte"
+  import Lenis from "lenis"
+  import {setScrollContext} from "$lib/context/scrollContext"
 
+  // @ts-ignore
+  let lenis: Lenis = $state()
+  let scrollContext = $state({
+    lenis
+  })
+
+  setScrollContext(scrollContext)
+
+  onMount(() => {
+    scrollContext.lenis = new Lenis({
+      autoRaf: true,
+      anchors: {
+        duration: 2
+      }
+    });
+  })
 </script>
 
 <svelte:head>

@@ -10,7 +10,7 @@
   } from "$lib/paraglide/messages"
 </script>
 
-<section>
+<section id="about-me">
   <div class="section-divider">
     <hr>
     <h2 class="section-name">Обо мне</h2>
