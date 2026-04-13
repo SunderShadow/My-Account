@@ -5,6 +5,7 @@
   } from "$lib/paraglide/messages"
 
   import HomeSection from "./Sections/Home/Home.svelte"
+  import AboutMe from "./Sections/About-me/AboutMe.svelte"
 
 </script>
 
@@ -14,6 +15,7 @@
 
 <div id="page-container">
   <HomeSection />
+  <AboutMe />
 </div>
 
 <style lang="scss">

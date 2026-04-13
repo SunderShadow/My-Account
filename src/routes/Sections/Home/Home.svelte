@@ -7,42 +7,48 @@
   import Github from "$lib/components/_icons/Github.svelte"
 </script>
 
-<header>
-  <div id="header-navigation">
-    <Navigation items={navigation} />
-  </div>
-
-  <div id="page-settings">
-    <SwitchLanguage />
-    <SwitchTheme />
-  </div>
-
-  <div id="relative-links">
-    <a href=""><Figma /></a>
-    <a href=""><Github /></a>
-  </div>
-</header>
-
-<section class="container">
-  <div id="author-description">
-    <p>
-      Специалист<br>
-      в области<br>
-      web-разработки<br>
-      с 3х летним<br>
-      опытом
-    </p>
-  </div>
-  <div id="author-img">
-    <div id="title">
-      <h1>Hello World</h1>
-      <div>Alexandr Shvedov</div>
+<div id="home-section">
+  <header>
+    <div id="header-navigation">
+      <Navigation items={navigation} />
     </div>
-  </div>
-</section>
+
+    <div id="page-settings">
+      <SwitchLanguage />
+      <SwitchTheme />
+    </div>
+
+    <div id="relative-links">
+      <a href=""><Figma /></a>
+      <a href=""><Github /></a>
+    </div>
+  </header>
+
+  <section class="container">
+    <div id="author-description">
+      <p>
+        Специалист<br>
+        в области<br>
+        web-разработки<br>
+        с 3х летним<br>
+        опытом
+      </p>
+    </div>
+    <div id="author-img">
+      <div id="title">
+        <h1>Hello World</h1>
+        <div>Alexandr Shvedov</div>
+      </div>
+    </div>
+  </section>
+</div>
 
 <style lang="scss">
   @use "_mixins/font";
+
+  #home-section {
+    height: 100vh;
+  }
 
   header {
     height: 75px;
@@ -91,6 +97,7 @@
     position: relative;
     grid-column: 3 / 7;
     aspect-ratio: 1 / 1;
+    max-height: 85vh;
 
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.0045) 100%);
   }
