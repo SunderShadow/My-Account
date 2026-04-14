@@ -10,13 +10,11 @@
   import Roscosmos from "./logos/Roscosmos.svelte"
   import Sber from "./logos/Sber.svelte"
   import Sberhealth from "./logos/Sberhealth.svelte"
+  import SectionDivider from "$lib/components/SectionDivider/SectionDivider.svelte"
 </script>
 
 <section id="projects">
-  <div class="section-divider">
-    <hr>
-    <h2 class="section-name">Проекты</h2>
-  </div>
+  <SectionDivider title="Проекты" id="projects"/>
 
   <div class="opening_phrase">За каждым хорошим сайтом стоит сильный разработчик</div>
 

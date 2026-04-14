@@ -8,13 +8,11 @@
     text_company_content,
     text_inspiration,
   } from "$lib/paraglide/messages"
+  import SectionDivider from "$lib/components/SectionDivider/SectionDivider.svelte"
 </script>
 
 <section id="about-me">
-  <div class="section-divider">
-    <hr>
-    <h2 class="section-name">Обо мне</h2>
-  </div>
+  <SectionDivider title="Обо мне" id="about-me"/>
 
   <div class="container">
     <div class="img">

@@ -5,9 +5,11 @@
   import SwitchTheme from "./SwitchTheme.svelte"
   import Figma from "$lib/components/_icons/Figma.svelte"
   import Github from "$lib/components/_icons/Github.svelte"
+  import SectionDivider from "$lib/components/SectionDivider/SectionDivider.svelte"
 </script>
 
-<div id="home-section">
+<div id="home">
+  <div class="page-divider"><SectionDivider title="Главная" id="home" /></div>
   <header>
     <div id="header-navigation">
       <Navigation items={navigation} />
@@ -46,7 +48,11 @@
 <style lang="scss">
   @use "_mixins/font";
 
-  #home-section {
+  .page-divider {
+    opacity: 0;
+    visibility: hidden;
+  }
+  #home {
     height: 97vh;
     display: flex;
     flex-direction: column;
@@ -55,6 +61,7 @@
   .container {
     flex-grow: 1;
   }
+
   header {
     height: 75px;
     display: flex;

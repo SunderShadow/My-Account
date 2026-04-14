@@ -1,5 +1,5 @@
 @forward "./env";
-@use "$lib/scss/mixins/font";
+@use "_mixins/font";
 
 // Jura
 @font-face {
@@ -47,23 +47,4 @@ html, body {
   min-height: 100vh;
   background-color: var(--bg-color);
   color: var(--text-color);
-}
-
-// Section divider
-.section-divider {
-  position: relative;
-}
-
-.section-name {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  margin: 0;
-
-  @include font.main;
-  font-weight: 400;
-  font-size: 32px;
-
-  opacity: .5;
 }

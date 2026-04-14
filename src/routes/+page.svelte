@@ -10,6 +10,38 @@
   import Lenis from "lenis"
   import {setScrollContext} from "$lib/context/scrollContext"
   import Projects from "./Sections/Projects/Projects.svelte"
+  import {setSectionBoundContext} from "$lib/context/page_section_bounds"
+  import {page} from "$app/state"
+  import {goto} from "$app/navigation"
+
+  let context = setSectionBoundContext({
+    bounds: []
+  })
+
+  onMount(() => {
+    window.addEventListener('scroll', (e) => {
+      const scrollY = window.scrollY + 200
+      let currentSectionId: null|string = null
+      for (let i = 0; i < context.bounds.length - 1; i++) {
+        if (context.bounds[i].top < scrollY && context.bounds[i + 1].top > scrollY) {
+          currentSectionId = context.bounds[i].id
+          break
+        }
+      }
+
+      if (!currentSectionId) {
+        currentSectionId = context.bounds[context.bounds.length - 1].id
+      }
+
+      if (!page.url.href.endsWith(currentSectionId)) {
+        goto(currentSectionId, {
+          replaceState: true,
+          keepFocus: true,
+          noScroll: true
+        })
+      }
+    })
+  })
 
   // @ts-ignore
   let lenis: Lenis = $state()
