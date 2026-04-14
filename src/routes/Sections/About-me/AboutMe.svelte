@@ -45,27 +45,9 @@
     height: 100vh;
   }
 
-  .section-divider {
-    position: relative;
-  }
-
   .container {
     height: 100%;
     grid-template-rows: repeat(2, 1fr);
-  }
-
-  .section-name {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    margin: 0;
-
-    @include font.main;
-    font-weight: 400;
-    font-size: 32px;
-
-    opacity: .5;
   }
 
   .img {

@@ -47,9 +47,14 @@
   @use "_mixins/font";
 
   #home-section {
-    height: 100vh;
+    height: 97vh;
+    display: flex;
+    flex-direction: column;
   }
 
+  .container {
+    flex-grow: 1;
+  }
   header {
     height: 75px;
     display: flex;

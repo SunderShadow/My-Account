@@ -9,6 +9,7 @@
   import {onMount} from "svelte"
   import Lenis from "lenis"
   import {setScrollContext} from "$lib/context/scrollContext"
+  import Projects from "./Sections/Projects/Projects.svelte"
 
   // @ts-ignore
   let lenis: Lenis = $state()
@@ -35,6 +36,7 @@
 <div id="page-container">
   <HomeSection />
   <AboutMe />
+  <Projects />
 </div>
 
 <style lang="scss">
