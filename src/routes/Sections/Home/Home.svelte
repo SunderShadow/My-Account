@@ -6,6 +6,8 @@
   import Figma from "$lib/components/_icons/Figma.svelte"
   import Github from "$lib/components/_icons/Github.svelte"
   import SectionDivider from "$lib/components/SectionDivider/SectionDivider.svelte"
+
+  import authorEnhanced from "./author.png?enhanced&format=webp&quality=100"
 </script>
 
 <div id="home">
@@ -41,6 +43,7 @@
         <h1>Hello World</h1>
         <div>Alexandr Shvedov</div>
       </div>
+      <img src={authorEnhanced.img.src} alt="">
     </div>
   </section>
 </div>
@@ -111,7 +114,19 @@
     aspect-ratio: 1 / 1;
     max-height: 85vh;
 
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.0045) 100%);
+    &::before {
+      position: absolute;
+      content: '';
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.0025) 100%);
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+
+    img {
+      width: 100%;
+    }
   }
 
   #page-settings {
