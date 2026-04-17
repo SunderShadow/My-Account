@@ -8,6 +8,7 @@
   import SectionDivider from "$lib/components/SectionDivider/SectionDivider.svelte"
 
   import authorEnhanced from "./author.png?enhanced&format=webp&quality=100"
+  import {FIGMA_LAYOUT_URL, GITHUB_LAYOUT_URL} from "$env/static/public"
 </script>
 
 <div id="home">
@@ -23,8 +24,8 @@
     </div>
 
     <div id="relative-links">
-      <a href=""><Figma /></a>
-      <a href=""><Github /></a>
+      <a href={FIGMA_LAYOUT_URL}><Figma /></a>
+      <a href={GITHUB_LAYOUT_URL}><Github /></a>
     </div>
   </header>
 
