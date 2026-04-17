@@ -55,6 +55,9 @@
 <style lang="scss">
   @use "_mixins/font";
 
+  #projects {
+    padding-bottom: 211px;
+  }
   .opening_phrase {
     font-size: 91px;
     font-weight: 700;

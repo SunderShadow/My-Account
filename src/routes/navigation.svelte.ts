@@ -4,7 +4,7 @@ import {page_home, page_projects, page_about_me, page_contact_me} from "$lib/par
 export default [
   {
     title: page_home(),
-    href: '/'
+    href: '#home'
   },
   {
     title: page_about_me(),

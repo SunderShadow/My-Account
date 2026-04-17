@@ -25,7 +25,8 @@ const config = {
       privatePrefix: '_'
     },
     alias: {
-      "_mixins": "./src/lib/scss/mixins"
+      "_mixins": "./src/lib/scss/mixins",
+      "$lang": "./src/lib/paraglide/messages/_index"
     }
 	}
 };

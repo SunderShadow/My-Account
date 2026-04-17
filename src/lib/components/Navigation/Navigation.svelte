@@ -20,6 +20,10 @@
      })
   }
 
+  function isPageActive(href) {
+    return href === page.url.hash
+  }
+
   let {
     items
   }: Props = $props()
@@ -34,7 +38,7 @@
   {#each items as {href, title}}
     <a {href}
       onclick={(e) => {onLinkClick(e, href)}}
-      class:active={href === page.url.pathname}
+      class:active={isPageActive(href)}
     >
       <span>{title}</span>
       {@render linkIcon()}
