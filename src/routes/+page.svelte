@@ -15,7 +15,6 @@
 
   import {onMount} from "svelte"
 
-  import {setScrollContext} from "$lib/context/scrollContext"
   import {setSectionBoundContext} from "$lib/context/page_section_bounds"
 
   import {page} from "$app/state"
@@ -50,21 +49,13 @@
     })
   })
 
-  // @ts-ignore
-  let lenis: Lenis = $state()
-  let scrollContext = $state({
-    lenis
-  })
-
-  setScrollContext(scrollContext)
-
   onMount(() => {
-    scrollContext.lenis = new Lenis({
+    new Lenis({
       autoRaf: true,
       anchors: {
         duration: 2
       }
-    });
+    })
   })
 </script>
 
