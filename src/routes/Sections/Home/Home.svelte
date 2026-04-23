@@ -3,6 +3,7 @@
   import Navigation from "$lib/components/Navigation/Navigation.svelte"
   import SwitchLanguage from "./SwitchLanguage.svelte"
   import SwitchTheme from "./SwitchTheme.svelte"
+
   import Figma from "$lib/components/_icons/Figma.svelte"
   import Github from "$lib/components/_icons/Github.svelte"
   import SectionDivider from "$lib/components/SectionDivider/SectionDivider.svelte"
@@ -10,6 +11,7 @@
   import authorEnhanced from "./author.png?enhanced&format=webp&quality=100"
   import {FIGMA_LAYOUT_URL, GITHUB_LAYOUT_URL} from "$env/static/public"
   import {home_author_description, page_home} from "$lib/paraglide/messages"
+  import AppearAnimation from "$lib/components/AppearAnimation/AppearAnimation.svelte"
 </script>
 
 <svelte:head>
@@ -20,32 +22,44 @@
   <div class="page-divider"><SectionDivider title={page_home()} id="home" /></div>
   <header>
     <div id="header-navigation">
-      <Navigation items={navigation} />
+      <AppearAnimation>
+        <Navigation items={navigation} />
+      </AppearAnimation>
     </div>
 
     <div id="page-settings">
-      <SwitchLanguage />
+      <AppearAnimation delay="1" to="bottom">
+        <SwitchLanguage />
+      </AppearAnimation>
 <!--      <SwitchTheme />-->
     </div>
 
     <div id="relative-links">
-      <a href={FIGMA_LAYOUT_URL} aria-label="Go to Figma"><Figma /></a>
-      <a href={GITHUB_LAYOUT_URL} aria-label="Go to Github"><Github /></a>
+      <AppearAnimation to="left">
+        <a href={FIGMA_LAYOUT_URL} aria-label="Go to Figma"><Figma /></a>
+        <a href={GITHUB_LAYOUT_URL} aria-label="Go to Github"><Github /></a>
+      </AppearAnimation>
     </div>
   </header>
 
   <section id="author-info" class="container">
-    <div id="author-description">
-      <p>
-        {@html home_author_description()}
-      </p>
-    </div>
+      <div id="author-description">
+        <p>
+          <AppearAnimation delay="7">
+            {@html home_author_description()}
+          </AppearAnimation>
+        </p>
+      </div>
     <div id="author-img">
       <div id="title">
-        <h1>Hello World</h1>
-        <div>Alexandr Shvedov</div>
+        <AppearAnimation delay="2">
+          <h1>Hello World</h1>
+          <div>Alexandr Shvedov</div>
+        </AppearAnimation>
       </div>
-      <img src={authorEnhanced.img.src} alt="Александр Шведов">
+      <AppearAnimation delay="1" to="left">
+        <img src={authorEnhanced.img.src} alt="Александр Шведов">
+      </AppearAnimation>
     </div>
   </section>
 </div>
@@ -60,7 +74,6 @@
   }
 
   #home {
-    overflow: hidden;
     @include scr.desktop {
       height: 100vh;
     }
@@ -157,10 +170,11 @@
       left: 0;
       bottom: 0;
       right: 0;
+      z-index: 10;
     }
 
     img {
-      height: 100%;
+      //height: 100%;
     }
 
     @include scr.mobile {
