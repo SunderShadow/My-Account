@@ -183,12 +183,11 @@
       }
     }
 
-    img {
-      //height: 100%;
-    }
-
     @include scr.mobile {
-      height: 320px;
+      img {
+        object-position: top center;
+        height: 320px;
+      }
     }
   }
 
