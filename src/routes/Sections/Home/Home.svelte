@@ -22,20 +22,20 @@
   <div class="page-divider"><SectionDivider title={page_home()} id="home" /></div>
   <header>
     <div id="header-navigation">
-      <AppearAnimation>
+      <AppearAnimation delay="4">
         <Navigation items={navigation} />
       </AppearAnimation>
     </div>
 
     <div id="page-settings">
-      <AppearAnimation delay="1" to="bottom">
+      <AppearAnimation to="bottom">
         <SwitchLanguage />
       </AppearAnimation>
 <!--      <SwitchTheme />-->
     </div>
 
     <div id="relative-links">
-      <AppearAnimation to="left">
+      <AppearAnimation to="left" delay="4">
         <a href={FIGMA_LAYOUT_URL} aria-label="Go to Figma"><Figma /></a>
         <a href={GITHUB_LAYOUT_URL} aria-label="Go to Github"><Github /></a>
       </AppearAnimation>
@@ -44,21 +44,23 @@
 
   <section id="author-info" class="container">
       <div id="author-description">
-        <p>
-          <AppearAnimation delay="7">
-            {@html home_author_description()}
-          </AppearAnimation>
-        </p>
+        <AppearAnimation delay="6">
+          <p>
+            <span>{@html home_author_description()}</span>
+          </p>
+        </AppearAnimation>
       </div>
     <div id="author-img">
       <div id="title">
-        <AppearAnimation delay="2">
+        <AppearAnimation delay="3">
           <h1>Hello World</h1>
           <div>Alexandr Shvedov</div>
         </AppearAnimation>
       </div>
-      <AppearAnimation delay="1" to="left">
-        <img src={authorEnhanced.img.src} alt="Александр Шведов">
+      <AppearAnimation delay="2" to="left">
+        <div class="img">
+          <img src={authorEnhanced.img.src} alt="Александр Шведов">
+        </div>
       </AppearAnimation>
     </div>
   </section>
@@ -75,7 +77,9 @@
 
   #home {
     @include scr.desktop {
-      height: 100vh;
+      @media (min-height: 1020px) {
+        padding-bottom: calc(100vh - 1020px);
+      }
     }
 
     @include scr.mobile {
@@ -112,7 +116,7 @@
 
     @include font.main;
 
-    z-index: 2;
+    z-index: 5;
 
     h1 {
       font-size: 128px;
@@ -144,6 +148,10 @@
     grid-column: 1 / 3;
     display: flex;
 
+    :global > * {
+      margin: auto 0 0;
+    }
+
     p {
       margin: auto 0 0;
 
@@ -162,15 +170,17 @@
     position: relative;
     grid-column: 3 / 7;
 
-    &::before {
-      position: absolute;
-      content: '';
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.0025) 100%);
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      z-index: 10;
+    .img {
+      &::before {
+        position: absolute;
+        content: '';
+        background: linear-gradient(135deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.0025) 100%);
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+      }
     }
 
     img {

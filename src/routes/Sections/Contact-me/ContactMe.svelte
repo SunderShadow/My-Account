@@ -7,6 +7,7 @@
   import Navigation from "$lib/components/Navigation/Navigation.svelte"
   import {page_contact_me} from "$lib/paraglide/messages"
   import {contact_me_telegram, contact_me_phone} from "$lib/paraglide/messages"
+  import AppearAnimation from "$lib/components/AppearAnimation/AppearAnimation.svelte"
 </script>
 
 <section id="contact-me">
@@ -19,10 +20,14 @@
   <h3>{contact_me_phone()}</h3>
   <p><a href="tel:{AUTHOR_PHONE}">{AUTHOR_PHONE}</a></p>
 
-  <div id="footer-author-name">Alexandr Shvedov</div>
-  <div id="footer-navigation">
-    <Navigation items={navigation} />
-  </div>
+  <AppearAnimation>
+    <div id="footer-author-name">Alexandr Shvedov</div>
+  </AppearAnimation>
+    <div id="footer-navigation">
+      <AppearAnimation to="left" delay="1">
+        <Navigation items={navigation} />
+      </AppearAnimation>
+    </div>
 </section>
 
 <style lang="scss">

@@ -10,6 +10,7 @@
   } from "$lib/paraglide/messages"
 
   import SectionDivider from "$lib/components/SectionDivider/SectionDivider.svelte"
+  import AppearAnimation from "$lib/components/AppearAnimation/AppearAnimation.svelte"
 </script>
 
 <svelte:head>
@@ -21,21 +22,31 @@
 
   <div class="container">
     <div class="img">
-      <img src={imgEnhanced.img.src} alt="Рюкзак с вещами для путешествий">
+      <div>
+        <AppearAnimation delay="3">
+          <img src={imgEnhanced.img.src} alt="Рюкзак с вещами для путешествий">
+        </AppearAnimation>
+      </div>
     </div>
 
     <div class="content">
-      <h3>{text_childhood_title()}</h3>
-      <p>{text_childhood_content()}</p>
+      <AppearAnimation to="top">
+        <h3>{text_childhood_title()}</h3>
+        <p>{text_childhood_content()}</p>
+      </AppearAnimation>
     </div>
 
     <div class="content">
-      <h3>{text_company_title()}</h3>
-      <p>{text_company_content()}</p>
+      <AppearAnimation to="top">
+        <h3>{text_company_title()}</h3>
+        <p>{text_company_content()}</p>
+      </AppearAnimation>
     </div>
 
     <div class="inspiration-text">
-      {@html text_inspiration()}
+      <AppearAnimation to="top">
+        {@html text_inspiration()}
+      </AppearAnimation>
     </div>
   </div>
 </section>
@@ -72,10 +83,13 @@
       grid-row: span 2;
     }
 
-    img {
+    > * {
       position: absolute;
       right: 0;
       bottom: 108px;
+    }
+
+    img {
       height: 622px;
     }
 
@@ -87,7 +101,7 @@
       right: 0;
       z-index: 0;
 
-      img {
+      > * {
         height: 100%;
         bottom: auto;
         right: -40px;
