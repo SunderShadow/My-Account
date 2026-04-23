@@ -19,7 +19,8 @@
   import {goto} from "$app/navigation"
 
   let sectionBoundContext = setSectionBoundContext({
-    bounds: []
+    bounds: [],
+    activeBound: {active: false}
   })
 
   onMount(() => {

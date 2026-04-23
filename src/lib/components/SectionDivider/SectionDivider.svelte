@@ -6,10 +6,15 @@
 
   import {createContext} from "svelte"
 
+  export type Bound = {
+    top: number,
+    id: string,
+    active: boolean
+  }
+
   export type SectionBoundContext = {
-    bounds: Array<{
-      top: number, id: string
-    }>
+    bounds: Array<Bound>,
+    activeBound: Bound
   }
 
   export const [getSectionBoundContext, setSectionBoundContext] = createContext<SectionBoundContext>()
@@ -25,20 +30,31 @@
     function calcCurrentSection() {
       const scrollY = window.scrollY + window.innerHeight / 3
       for (let i = 0; i < context.bounds.length - 1; i++) {
-        if (context.bounds[i].top < scrollY && context.bounds[i + 1].top > scrollY) {
-          if (context.bounds[i].id === currentSectionId) {
+        const bound = context.bounds[i]
+        if (bound.top < scrollY && context.bounds[i + 1].top > scrollY) {
+          if (bound.id === currentSectionId) {
             return
           }
 
-          currentSectionId = context.bounds[i].id
+          context.activeBound.active = false
+          context.activeBound = bound
+          context.activeBound.active = true
+
+          currentSectionId = bound.id
+
           cb(currentSectionId)
 
           return
         }
       }
 
-      if (currentSectionId !== context.bounds[context.bounds.length - 1].id) {
-        currentSectionId = context.bounds[context.bounds.length - 1].id
+      const lastBound = context.bounds[context.bounds.length - 1]
+      if (currentSectionId !== lastBound.id) {
+        context.activeBound.active = false
+        context.activeBound = lastBound
+        lastBound.active = true
+
+        currentSectionId = lastBound.id
         cb(currentSectionId)
       }
     }
@@ -57,18 +73,25 @@
 
   // @ts-ignore
   let dividerEl: HTMLDivElement = $state()
-  let selectorId = $derived('#' + id)
+  let selectorId = '#' + id
 
   let context = getSectionBoundContext()
+
+  let contextProps = $state({
+    top: 0,
+    id: selectorId,
+    active: false
+  })
+  context.bounds.push(contextProps)
 
   onMount(() => {
     const dividerElBoundY = dividerEl.getBoundingClientRect().top + window.scrollY
 
-    context.bounds.push({top: dividerElBoundY, id: selectorId})
+    contextProps.top = dividerElBoundY
   })
 </script>
 
-<div class="section-divider" bind:this={dividerEl}>
+<div class="section-divider" class:active={contextProps.active} bind:this={dividerEl}>
   <hr>
   <h2 class="section-name">{title}</h2>
 </div>
@@ -92,10 +115,18 @@
     font-weight: 400;
     font-size: 32px;
 
-    opacity: .5;
+    opacity: .25;
+
+    transition-property: opacity, color;
+    transition-duration: var(--transition-duration);
 
     @include scr.mobile {
       font-size: 12px;
     }
+  }
+
+  .section-divider.active .section-name {
+    opacity: .75;
+    color: #72ABDC;
   }
 </style>
