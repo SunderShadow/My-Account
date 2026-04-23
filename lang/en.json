@@ -1,6 +1,9 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-    "author_full_name": "Alexand Shvedov",
+
+    "author_first_name": "Alexandr",
+    "author_last_name": "Shvedov",
+    "author_full_name": "Alexandr Shvedov",
     "author_job_name": "Fullstack Web Developer",
     "meta_description": "Alexandr Shvedov's buisned card site - web-developer with experience above 3 years",
 

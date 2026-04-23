@@ -9,7 +9,7 @@
   import ContactMeSection from "./Sections/Contact-me/ContactMe.svelte"
   import ProjectsSection from "./Sections/Projects/Projects.svelte"
 
-  import {meta_description} from "$lib/paraglide/messages"
+  import {meta_description, author_first_name, author_last_name} from "$lib/paraglide/messages"
 
   import Lenis from "lenis"
 
@@ -47,6 +47,13 @@
   <title>{author_job_name()} {author_full_name()}</title>
 
   <meta name="description" content={meta_description()}>
+
+  <meta name="og:title" content={author_full_name()}>
+  <meta name="og:type" content="profile">
+  <meta name="og:profile:first_name" content={author_first_name()}>
+  <meta name="og:profile:last_name" content={author_last_name()}>
+  <meta name="og:profile:username" content="emo_ti_on">
+  <meta name="og:profile:gender" content="male">
 </svelte:head>
 
 <main id="page-container">

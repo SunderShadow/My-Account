@@ -2,7 +2,9 @@
   "$schema": "https://inlang.com/schema/inlang-message-format",
   "meta_description": "Визитка веб-разработчика (web-developer) Александр Шведов с опытом работы более 3х лет",
 
-  "author_full_name": "Шведов Александр Николаевич",
+  "author_first_name": "Александр",
+  "author_last_name": "Шведов",
+  "author_full_name": "Шведов Александр",
   "author_job_name": "Fullstack web разработчик",
 
   "home_author_description": "Специалист<br>в области<br>web-разработки<br>с 3х летним<br>опытом",

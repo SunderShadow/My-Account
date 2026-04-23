@@ -16,6 +16,7 @@
 
 <svelte:head>
   <link rel="preload" as="image" href={authorEnhanced.img.src} fetchpriority="high">
+  <meta name="og:image" content={authorEnhanced}>
 </svelte:head>
 
 <div id="home">
