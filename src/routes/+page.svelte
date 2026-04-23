@@ -15,37 +15,20 @@
 
   import {onMount} from "svelte"
 
-  import {setSectionBoundContext} from "$lib/context/page_section_bounds"
-
-  import {page} from "$app/state"
+  import {setSectionBoundContext, onActiveBoundChange} from "$lib/components/SectionDivider/SectionDivider.svelte"
   import {goto} from "$app/navigation"
 
-  let context = setSectionBoundContext({
+  let sectionBoundContext = setSectionBoundContext({
     bounds: []
   })
 
   onMount(() => {
-    window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY + 200
-      let currentSectionId: null|string = null
-      for (let i = 0; i < context.bounds.length - 1; i++) {
-        if (context.bounds[i].top < scrollY && context.bounds[i + 1].top > scrollY) {
-          currentSectionId = context.bounds[i].id
-          break
-        }
-      }
-
-      if (!currentSectionId) {
-        currentSectionId = context.bounds[context.bounds.length - 1].id
-      }
-
-      if (!page.url.href.endsWith(currentSectionId)) {
-        goto(currentSectionId, {
-          replaceState: true,
-          keepFocus: true,
-          noScroll: true
-        })
-      }
+    onActiveBoundChange(sectionBoundContext, (sectionId) => {
+      goto(sectionId, {
+        replaceState: true,
+        noScroll: true,
+        keepFocus: true
+      })
     })
   })
 

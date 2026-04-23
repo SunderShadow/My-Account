@@ -3,10 +3,52 @@
     title: string,
     id: string
   }
+
+  import {createContext} from "svelte"
+
+  export type SectionBoundContext = {
+    bounds: Array<{
+      top: number, id: string
+    }>
+  }
+
+  export const [getSectionBoundContext, setSectionBoundContext] = createContext<SectionBoundContext>()
+
+  /**
+   * Invoke `cb` if window bound reaches another page divider
+   * @param sectionBoundContext
+   * @param cb
+   */
+  export function onActiveBoundChange(sectionBoundContext: SectionBoundContext, cb: (sectionId: string) => void) {
+    const context = sectionBoundContext
+    let currentSectionId: string = ''
+    function calcCurrentSection() {
+      const scrollY = window.scrollY + window.innerHeight / 3
+      for (let i = 0; i < context.bounds.length - 1; i++) {
+        if (context.bounds[i].top < scrollY && context.bounds[i + 1].top > scrollY) {
+          if (context.bounds[i].id === currentSectionId) {
+            return
+          }
+
+          currentSectionId = context.bounds[i].id
+          cb(currentSectionId)
+
+          return
+        }
+      }
+
+      if (currentSectionId !== context.bounds[context.bounds.length - 1].id) {
+        currentSectionId = context.bounds[context.bounds.length - 1].id
+        cb(currentSectionId)
+      }
+    }
+
+    calcCurrentSection()
+    window.addEventListener('scroll', calcCurrentSection)
+  }
 </script>
 <script lang="ts">
   import {onMount} from "svelte"
-  import {getSectionBoundContext} from "$lib/context/page_section_bounds"
 
   let {
     title,
