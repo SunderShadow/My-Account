@@ -25,6 +25,7 @@
 
 <style lang="scss">
   @use "_mixins/font";
+  @use "_mixins/scr";
 
   #contact-me {
     position: relative;
@@ -38,6 +39,13 @@
     font-size: 91px;
     font-weight: 500;
     text-align: right;
+
+    @include scr.mobile {
+      margin-bottom: 40px;
+
+      font-size: 24px;
+      font-weight: 700;
+    }
   }
 
   h3 {
@@ -54,11 +62,20 @@
 
   p + h3 {
     margin-top: 80px;
+
+    @include scr.mobile {
+      margin-top: 28px;
+    }
   }
 
   a {
     font-size: 91px;
     color: inherit;
+
+    @include scr.mobile {
+      font-size: 40px;
+      font-weight: 800;
+    }
   }
 
   #footer-author-name {
@@ -67,6 +84,12 @@
     font-weight: 400;
     font-size: 36px;
     letter-spacing: 0.41em;
+
+    @include scr.mobile {
+      font-size: 14px;
+      margin-top: 94px;
+      max-width: 145px;
+    }
   }
 
   #footer-navigation {
@@ -75,12 +98,17 @@
     right: 0;
 
     width: 413px;
+
+    @include scr.mobile {
+      width: 150px;
+    }
+
     :global {
-      nav {
-        width: 100%;
-      }
       a {
         font-size: 32px;
+        @include scr.mobile {
+          font-size: 13px;
+        }
       }
 
       svg {

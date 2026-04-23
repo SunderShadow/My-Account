@@ -33,6 +33,7 @@
 
 <style lang="scss">
   @use "_mixins/font";
+  @use "_mixins/scr";
 
   .section-divider {
     position: relative;
@@ -50,5 +51,9 @@
     font-size: 32px;
 
     opacity: .5;
+
+    @include scr.mobile {
+      font-size: 12px;
+    }
   }
 </style>

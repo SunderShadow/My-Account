@@ -78,7 +78,13 @@
 </div>
 
 <style lang="scss">
+  @use "_mixins/scr";
+
   #page-container {
     padding: 32px 40px;
+
+    @include scr.mobile {
+      padding: 32px 20px;
+    }
   }
 </style>

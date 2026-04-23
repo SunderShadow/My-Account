@@ -1,5 +1,6 @@
 @forward "./env";
 @use "_mixins/font";
+@use "_mixins/scr";
 
 // Jura
 @font-face {
@@ -38,6 +39,11 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 0 42px;
+
+  @include scr.mobile {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0 8px;
+  }
 }
 
 html, body {
@@ -47,4 +53,8 @@ html, body {
   min-height: 100vh;
   background-color: var(--bg-color);
   color: var(--text-color);
+
+  @include scr.mobile {
+    font-size: 12px;
+  }
 }

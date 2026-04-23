@@ -29,7 +29,7 @@
     </div>
   </header>
 
-  <section class="container">
+  <section id="author-info" class="container">
     <div id="author-description">
       <p>
         Специалист<br>
@@ -51,13 +51,23 @@
 
 <style lang="scss">
   @use "_mixins/font";
+  @use "_mixins/scr";
 
   .page-divider {
     opacity: 0;
     visibility: hidden;
   }
+
   #home {
-    height: 97vh;
+    @include scr.desktop {
+      height: 97vh;
+    }
+
+    @include scr.mobile {
+      margin: 0 -20px;
+      overflow: hidden;
+    }
+
     display: flex;
     flex-direction: column;
   }
@@ -71,6 +81,11 @@
     display: flex;
     position: relative;
     margin-bottom: 30px;
+
+    @include scr.mobile {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
   }
 
   #title {
@@ -81,6 +96,8 @@
     text-align: right;
 
     @include font.main;
+
+    z-index: 2;
 
     h1 {
       font-size: 128px;
@@ -93,27 +110,44 @@
       font-size: 36px;
       letter-spacing: 41%;
     }
+
+    @include scr.mobile {
+      top: 21px;
+      left: -174px;
+
+      h1 {
+        font-size: 48px;
+      }
+
+      div {
+        font-size: 14px;
+      }
+    }
   }
 
   #author-description {
     grid-column: 1 / 3;
     display: flex;
-  }
 
-  p {
-    margin: auto 0 0;
+    p {
+      margin: auto 0 0;
 
-    font-size: 76px;
-    font-weight: 100;
+      font-size: 64px;
+      font-weight: 100;
 
-    text-align: right;
+      text-align: right;
+
+      @include scr.mobile {
+        font-size: 22px;
+      }
+    }
   }
 
   #author-img {
     position: relative;
     grid-column: 3 / 7;
     aspect-ratio: 1 / 1;
-    max-height: 85vh;
+    height: 100%;
 
     &::before {
       position: absolute;
@@ -128,6 +162,10 @@
     img {
       width: 100%;
     }
+
+    @include scr.mobile {
+      height: 320px;
+    }
   }
 
   #page-settings {
@@ -137,12 +175,32 @@
     left: 50%;
     user-select: none;
     transform: translateX(-50%);
+
+    @include scr.mobile {
+      top: 76px;
+      right: 0;
+      left: auto;
+      transform: none;
+
+      font-size: 14px;
+      :global button {
+        margin-right: 0;
+      }
+    }
   }
 
   #header-navigation {
     position: absolute;
     top: 0;
     left: 0;
+
+    @include scr.mobile {
+      :global {
+        a {
+          font-size: 13px;
+        }
+      }
+    }
   }
 
   #relative-links {
@@ -156,9 +214,17 @@
 
       transition-property: opacity;
       transition-duration: var(--transition-duration);
+
       &:hover {
         opacity: .75;
       }
+    }
+  }
+
+  #author-info {
+    @include scr.mobile {
+      margin-top: 42px;
+      padding-left: 20px;
     }
   }
 </style>

@@ -32,11 +32,14 @@
   </div>
 
   <h3><a {href}>{title}</a></h3>
-  <div class="logos">{@render logos?.()}</div>
+  {#if logos}
+    <div class="logos">{@render logos()}</div>
+  {/if}
 </article>
 
 <style lang="scss">
   @use "_mixins/font";
+  @use "_mixins/scr";
 
   article {
     position: relative;
@@ -53,6 +56,10 @@
 
   .img {
     position: relative;
+
+    @include scr.mobile {
+      svg {display: none}
+    }
 
     svg {
       --size: 20px;
@@ -93,10 +100,16 @@
 
     text-transform: uppercase;
 
+    @include scr.mobile {
+      margin: 12px 0;
+      font-size: 16px;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
     }
+
     a::before {
       content: '';
 
@@ -111,14 +124,19 @@
   article.align-right .logos {
     justify-content: end;
   }
+
   .logos {
     display: flex;
     gap: 24px;
     align-items: center;
 
+    @include scr.mobile {
+      gap: 8px;
+    }
+
     :global > * {
-      height: 40px;
-      width: fit-content;
+      max-height: 20px;
+      width: auto;
     }
   }
 </style>

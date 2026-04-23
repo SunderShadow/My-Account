@@ -54,10 +54,16 @@
 
 <style lang="scss">
   @use "_mixins/font";
+  @use "_mixins/scr";
 
   #projects {
     padding-bottom: 211px;
+
+    @include scr.mobile {
+      padding-bottom: 40px;
+    }
   }
+
   .opening_phrase {
     font-size: 91px;
     font-weight: 700;
@@ -68,26 +74,55 @@
 
     margin-top: 196px;
     margin-bottom: 196px;
+
+    @include scr.mobile {
+      font-size: 20px;
+      text-align: left;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
   }
 
   .projects {
     row-gap: 140px;
+
+    @include scr.mobile {
+      row-gap: 40px;
+    }
   }
 
-  .project:nth-child(1) {
-    grid-column: 1 / 6;
+  .projects {
+    @include scr.mobile {
+      grid-template-columns: repeat(4, 1fr);
+    }
   }
 
-  .project:nth-child(2) {
-    grid-column: 3 / 7;
+  .project {
+    grid-column: span 4;
   }
+  @include scr.desktop {
+    .project:nth-child(1) {
+      grid-column: 1 / 6;
+    }
 
-  .project:nth-child(3) {
-    grid-column: 1 / 4;
+    .project:nth-child(2) {
+      grid-column: 3 / 7;
+    }
+
+    .project:nth-child(3) {
+      grid-column: 1 / 4;
+    }
   }
 
   #go-to-all-projects {
-    grid-column: 4 / 7;
+    @include scr.desktop {
+      grid-column: 4 / 7;
+    }
+
+    @include scr.mobile {
+      grid-column: span 4;
+    }
+
     display: flex;
     align-items: center;
     justify-content: end;
@@ -100,6 +135,18 @@
       text-transform: uppercase;
       color: #FFF;
       text-decoration: none;
+
+      @include scr.mobile {
+        font-size: 20px;
+        gap: 12px;
+      }
+    }
+
+    @include scr.mobile {
+      svg {
+        width: 81px;
+        height: 81px;
+      }
     }
   }
 

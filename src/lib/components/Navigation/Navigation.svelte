@@ -49,10 +49,6 @@
 <style lang="scss">
   @use "_mixins/font";
 
-  nav {
-    width: fit-content;
-  }
-
   a + a {
     margin-top: 4px;
   }
