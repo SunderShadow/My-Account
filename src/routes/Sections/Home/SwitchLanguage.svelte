@@ -1,7 +1,19 @@
+<script lang="ts">
+  import {getLocale, setLocale} from "$lib/paraglide/runtime"
+
+  function switchLanguage() {
+    if (getLocale() === 'ru') {
+      setLocale('en')
+    } else {
+      setLocale('ru')
+    }
+  }
+</script>
+
 <div class="switch">
   <div class="caption">Language</div>
-  <button>
-    <span>RU</span>
+  <button onclick={switchLanguage}>
+    <span>{getLocale()}</span>
 
     <!-- Arrows -->
     <svg width="25" height="27" viewBox="0 0 25 27" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,6 +29,9 @@
     opacity: .5;
   }
 
+  span {
+    text-transform: uppercase;
+  }
   button {
     width: 36px;
     height: 39px;

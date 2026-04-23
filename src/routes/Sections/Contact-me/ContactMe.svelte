@@ -5,16 +5,18 @@
 
   import SectionDivider from "$lib/components/SectionDivider/SectionDivider.svelte"
   import Navigation from "$lib/components/Navigation/Navigation.svelte"
+  import {page_contact_me} from "$lib/paraglide/messages"
+  import {contact_me_telegram, contact_me_phone} from "$lib/paraglide/messages"
 </script>
 
 <section id="contact-me">
-  <SectionDivider title="Связатся со мной" id="contact-me"/>
+  <SectionDivider title={page_contact_me()} id="contact-me"/>
 
   <div id="call-time">{working_time()}</div>
 
-  <h3>Через телеграм</h3>
+  <h3>{contact_me_telegram()}</h3>
   <p><a href="https://t.me/{AUTHOR_TELEGRAM}">@{AUTHOR_TELEGRAM}</a></p>
-  <h3>По телефону</h3>
+  <h3>{contact_me_phone()}</h3>
   <p><a href="tel:{AUTHOR_PHONE}">{AUTHOR_PHONE}</a></p>
 
   <div id="footer-author-name">Alexandr Shvedov</div>
@@ -54,6 +56,10 @@
     letter-spacing: -6%;
     margin: 0;
     opacity: .5;
+
+    @include scr.mobile {
+      font-size: 16px;
+    }
   }
 
   p {

@@ -9,10 +9,11 @@
 
   import authorEnhanced from "./author.png?enhanced&format=webp&quality=100"
   import {FIGMA_LAYOUT_URL, GITHUB_LAYOUT_URL} from "$env/static/public"
+  import {home_author_description, page_home} from "$lib/paraglide/messages"
 </script>
 
 <div id="home">
-  <div class="page-divider"><SectionDivider title="Главная" id="home" /></div>
+  <div class="page-divider"><SectionDivider title={page_home()} id="home" /></div>
   <header>
     <div id="header-navigation">
       <Navigation items={navigation} />
@@ -32,11 +33,7 @@
   <section id="author-info" class="container">
     <div id="author-description">
       <p>
-        Специалист<br>
-        в области<br>
-        web-разработки<br>
-        с 3х летним<br>
-        опытом
+        {@html home_author_description()}
       </p>
     </div>
     <div id="author-img">
@@ -59,8 +56,9 @@
   }
 
   #home {
+    overflow: hidden;
     @include scr.desktop {
-      height: 97vh;
+      height: 100vh;
     }
 
     @include scr.mobile {
@@ -146,8 +144,6 @@
   #author-img {
     position: relative;
     grid-column: 3 / 7;
-    aspect-ratio: 1 / 1;
-    height: 100%;
 
     &::before {
       position: absolute;
@@ -160,7 +156,7 @@
     }
 
     img {
-      width: 100%;
+      height: 100%;
     }
 
     @include scr.mobile {

@@ -1,4 +1,25 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
-	"author_full_name": "Шведов Александр Николаевич"
+    "author_full_name": "Alexand Shvedov",
+    "author_job_name": "Fullstack Web Developer",
+
+    "home_author_description": "Web-development specialist<br> with 3 years<br>of experience",
+
+    "page_home": "Home",
+    "page_about_me": "About me",
+    "page_projects": "Projects",
+    "page_contact_me": "Contact me",
+
+    "projects_opening_phrase": "Each site has its own developer",
+    "projects_all_projects": "All projects",
+
+    "text_childhood_title": "In childhood",
+    "text_childhood_content": "I always looked at computers as something unusual, and programmers seemed like people who could do anything.\nAt 15, when I got my first computer, I started learning the basics of development without thinking. My first HTML pages, with bad CSS, my first freelance projects, and a bunch of mistakes. By 17, I felt confident using the internet, making it my career, because...",
+    "text_company_title": "Having worked in 5 companies",
+    "text_company_content": "By developing everything I've ever had to tackle, I've gained vast experience in layout and server development, and I've studied numerous technologies that sometimes go beyond just systems programming.\nOver the course of my career, I've been involved in over 20 projects, three of which I've managed, and I plan to release even more.\nAfter all...",
+    "text_inspiration": "Site developing<br>is my aspiration",
+
+    "working_time": "12:00 to 21:00",
+    "contact_me_telegram": "By telegram",
+    "contact_me_phone": "By phone"
 }

@@ -6,13 +6,14 @@
     text_childhood_content,
     text_company_title,
     text_company_content,
-    text_inspiration,
+    text_inspiration, page_about_me,
   } from "$lib/paraglide/messages"
+
   import SectionDivider from "$lib/components/SectionDivider/SectionDivider.svelte"
 </script>
 
 <section id="about-me">
-  <SectionDivider title="Обо мне" id="about-me"/>
+  <SectionDivider title={page_about_me()} id="about-me"/>
 
   <div class="container">
     <div class="img">
@@ -41,7 +42,10 @@
 
   section {
     position: relative;
-    height: 100vh;
+
+    @include scr.desktop {
+      height: 100vh;
+    }
   }
 
   .container {
@@ -49,6 +53,10 @@
 
     @include scr.desktop {
       grid-template-rows: repeat(2, 1fr);
+    }
+
+    @include scr.mobile {
+      grid-template-rows: auto 150px;
     }
   }
 
@@ -60,11 +68,10 @@
       grid-row: span 2;
     }
 
-
     img {
       position: absolute;
       right: 0;
-      bottom: 106px;
+      bottom: 108px;
       height: 622px;
     }
 
@@ -77,8 +84,11 @@
       z-index: 0;
 
       img {
+        height: 100%;
+        bottom: auto;
+        right: -40px;
+
         opacity: .2;
-        right: -20px;
       }
     }
   }

@@ -24,7 +24,7 @@
   })
 
   onMount(() => {
-    window.addEventListener('scroll', (e) => {
+    window.addEventListener('scroll', () => {
       const scrollY = window.scrollY + 200
       let currentSectionId: null|string = null
       for (let i = 0; i < context.bounds.length - 1; i++) {
@@ -81,10 +81,10 @@
   @use "_mixins/scr";
 
   #page-container {
-    padding: 32px 40px;
+    padding: 0 40px 32px 40px;
 
     @include scr.mobile {
-      padding: 32px 20px;
+      padding: 0 40px 20px 40px;
     }
   }
 </style>

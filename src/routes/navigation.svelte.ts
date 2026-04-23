@@ -1,5 +1,5 @@
 import type {Item} from "$lib/components/Navigation/Navigation.svelte"
-import {page_home, page_projects, page_about_me, page_contact_me} from "$lib/paraglide/messages/_index"
+import {page_home, page_projects, page_about_me, page_contact_me} from "$lib/paraglide/messages"
 
 export default [
   {
