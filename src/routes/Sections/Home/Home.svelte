@@ -12,6 +12,10 @@
   import {home_author_description, page_home} from "$lib/paraglide/messages"
 </script>
 
+<svelte:head>
+  <link rel="preload" as="image" href={authorEnhanced.img.src} fetchpriority="high">
+</svelte:head>
+
 <div id="home">
   <div class="page-divider"><SectionDivider title={page_home()} id="home" /></div>
   <header>
@@ -21,12 +25,12 @@
 
     <div id="page-settings">
       <SwitchLanguage />
-      <SwitchTheme />
+<!--      <SwitchTheme />-->
     </div>
 
     <div id="relative-links">
-      <a href={FIGMA_LAYOUT_URL}><Figma /></a>
-      <a href={GITHUB_LAYOUT_URL}><Github /></a>
+      <a href={FIGMA_LAYOUT_URL} aria-label="Go to Figma"><Figma /></a>
+      <a href={GITHUB_LAYOUT_URL} aria-label="Go to Github"><Github /></a>
     </div>
   </header>
 
@@ -41,7 +45,7 @@
         <h1>Hello World</h1>
         <div>Alexandr Shvedov</div>
       </div>
-      <img src={authorEnhanced.img.src} alt="">
+      <img src={authorEnhanced.img.src} alt="Александр Шведов">
     </div>
   </section>
 </div>

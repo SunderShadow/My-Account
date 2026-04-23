@@ -9,6 +9,8 @@
   import ContactMeSection from "./Sections/Contact-me/ContactMe.svelte"
   import ProjectsSection from "./Sections/Projects/Projects.svelte"
 
+  import {meta_description} from "$lib/paraglide/messages"
+
   import Lenis from "lenis"
 
   import {onMount} from "svelte"
@@ -68,14 +70,16 @@
 
 <svelte:head>
   <title>{author_job_name()} {author_full_name()}</title>
+
+  <meta name="description" content={meta_description()}>
 </svelte:head>
 
-<div id="page-container">
+<main id="page-container">
   <HomeSection />
   <AboutMeSection />
   <ProjectsSection />
   <ContactMeSection />
-</div>
+</main>
 
 <style lang="scss">
   @use "_mixins/scr";

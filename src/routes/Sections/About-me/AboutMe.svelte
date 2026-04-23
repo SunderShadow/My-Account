@@ -12,6 +12,10 @@
   import SectionDivider from "$lib/components/SectionDivider/SectionDivider.svelte"
 </script>
 
+<svelte:head>
+  <link rel="preload" as="image" href={imgEnhanced.img.src} fetchpriority="high">
+</svelte:head>
+
 <section id="about-me">
   <SectionDivider title={page_about_me()} id="about-me"/>
 
