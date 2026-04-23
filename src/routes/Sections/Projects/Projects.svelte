@@ -13,6 +13,7 @@
   import SectionDivider from "$lib/components/SectionDivider/SectionDivider.svelte"
 
   import {page_projects, projects_opening_phrase, projects_all_projects} from "$lib/paraglide/messages"
+  import {PROJECT_DOC_PRO, PROJECT_MICOBUFF, PROJECT_FESTIVAL_KOSMOS} from "$env/static/public"
 </script>
 
 <section id="projects">
@@ -22,7 +23,7 @@
 
   <div class="container projects">
     <div class="project">
-      <Project href="https://festival-kosmos.ru/" title="Всероссийский фестиваль ресторанов" img={{src: kosmosEnhanced.img.src, alt: ''}}>
+      <Project href={PROJECT_FESTIVAL_KOSMOS} title="Всероссийский фестиваль ресторанов" img={{src: kosmosEnhanced.img.src, alt: ''}}>
         {#snippet logos()}
           <Roscosmos />
           <Sber />
@@ -32,14 +33,14 @@
       </Project>
     </div>
     <div class="project">
-      <Project href="https://micobuff-landing.vercel.app/" alignRight title="Медицинское приложение" img={{src: prodocEnhanced.img.src, alt: ''}}>
+      <Project href={PROJECT_DOC_PRO} alignRight title="Медицинское приложение" img={{src: prodocEnhanced.img.src, alt: ''}}>
         {#snippet logos()}
           <Sberhealth />
         {/snippet}
       </Project>
     </div>
     <div class="project">
-      <Project href="https://pro-doc-svelte.vercel.app/" title="Лендинг технологии производства грибов" img={{src: micobuffEnhanced.img.src, alt: ''}}>
+      <Project href={PROJECT_MICOBUFF} title="Лендинг технологии производства грибов" img={{src: micobuffEnhanced.img.src, alt: ''}}>
       </Project>
     </div>
     <div id="go-to-all-projects">
